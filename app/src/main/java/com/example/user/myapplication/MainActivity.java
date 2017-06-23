@@ -8,6 +8,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +29,13 @@ public class MainActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+
+        ArrayList<Playoffs> game = new ArrayList<Playoffs>();
+        game.add(new Playoffs(R.drawable.cavaliers,"Cavaliers","120",R.drawable.warriors,"Warriors","129"));
+        GameAdapter adapter = new GameAdapter(this,game);
+
+        ListView lv = (ListView) findViewById(R.id.lv);
+        lv.setAdapter(adapter);
     }
 
     @Override
@@ -49,4 +59,10 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Created by user on 2017/4/25.
+     */
+
+
 }
